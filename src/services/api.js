@@ -3,15 +3,15 @@ const getDataFromApi = () => {
   return fetch('https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json')
     .then((response) => response.json())
     .then((data) => {
-      const newArray = data.results.map((user) => {
+      const newArray = data.results.map((character) => {
         return {
-          id: user.id,
-          name: user.name,
-          status: user.status,
-          species: user.species,
-          origin: user.origin.name,
-          img: user.image,
-          episode: user.episode,
+          id: character.id,
+          name: character.name,
+          status: character.status,
+          species: character.species,
+          origin: character.origin.name,
+          img: character.image,
+          episode: character.episode,
         };
       });
 

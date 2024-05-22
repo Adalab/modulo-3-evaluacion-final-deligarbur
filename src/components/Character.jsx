@@ -1,8 +1,10 @@
-import React from 'react'
-
-function Character () {
+function Character ({ info }) {
   return (
-    <div>Character</div>
+    <article className="characterCard">
+      <img src={ info.img } alt={ info.name } className="characterCard_img" />
+      <h4>{ info.name }</h4>
+      <p>{ info.species }</p>
+    </article>
   )
 }
 
