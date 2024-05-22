@@ -9,6 +9,7 @@ import Footer from "./Footer";
 
 function App () {
 	const [listCharacters, setListCharacters] = useState([])
+	const [search, setSearch] = useState("")
 
 	useEffect(() => {
 		getDataFromApi().then((newArray) => {
@@ -16,11 +17,19 @@ function App () {
 		})
 	}, [])
 
+	const filterCharacters = () => {
+		return listCharacters.filter((item) => item.name.toLowerCase().includes(search))
+	}
+
+	const searchCharacter = (valueSearch) => {
+		setSearch(valueSearch);
+	}
+
 	return (
 		<>
 			<Header />
-			<FilterByName />
-			<CharacterList listCharacters={ listCharacters } />
+			<FilterByName searchCharacter={ searchCharacter } search={ search } />
+			<CharacterList listCharacters={ filterCharacters() } />
 			<Footer />
 		</>
 	)

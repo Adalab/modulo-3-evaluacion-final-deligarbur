@@ -1,8 +1,15 @@
-import React from 'react'
+function FilterByName ({ searchCharacter, search }) {
 
-function FilterByName () {
+  const handleSearch = (ev) => {
+    const valueSearch = ev.target.value;
+    searchCharacter(valueSearch);
+  }
+
   return (
-    <div>FilterByName</div>
+    <form>
+      <label htmlFor="search"></label>
+      <input type="text" name="search" id="search" onChange={ handleSearch } value={ search } />
+    </form>
   )
 }
 
