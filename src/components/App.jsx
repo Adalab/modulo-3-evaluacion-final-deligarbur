@@ -10,6 +10,7 @@ function App () {
 	//Variables de estado
 	const [listCharacters, setListCharacters] = useState([])
 	const [search, setSearch] = useState("")
+	const [filter, setFilter] = useState("All")
 
 	//Fetch de Api
 	useEffect(() => {
@@ -18,16 +19,12 @@ function App () {
 		})
 	}, [])
 
-
-
-
-
-
-
 	//Filtro personajes
-	const filterCharacters = listCharacters.filter((item) => {
-		return item.name.toLowerCase().includes(search.toLowerCase());
-	})
+	const filterCharacters = listCharacters.filter((character) => {
+		const filterStatus = filter === 'All' ? true : character.status === filter;
+		const filterName = character.name.toLowerCase().includes(search.toLowerCase());
+		return filterStatus && filterName;
+	});
 
 	//Validación búsqueda
 	const noCharacter = filterCharacters.length === 0 ? `No hay ningún personaje que coincida con la palabra ${search}` : "";
@@ -41,14 +38,11 @@ function App () {
 		return listCharacters.find((item) => item.id === idNumber);
 	}
 
-
-
-
 	return (
 		<>
 			<Routes>
 				<Route path="/" element={
-					<Home searchCharacter={ searchCharacter } search={ search } listCharacters={ filterCharacters } noCharacter={ noCharacter } /> }>
+					<Home searchCharacter={ searchCharacter } search={ search } listCharacters={ filterCharacters } noCharacter={ noCharacter } setFilter={ setFilter } filter={ filter } /> }>
 				</Route>
 				<Route path="/detail/:id" element={
 					<CharacterDetail getPosition={ getPosition } /> } />
