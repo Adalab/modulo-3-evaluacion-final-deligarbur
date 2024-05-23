@@ -7,42 +7,52 @@ import CharacterDetail from "./CharacterDetail";
 import PageNotFound from "./PageNotFound";
 
 function App () {
+	//Variables de estado
 	const [listCharacters, setListCharacters] = useState([])
 	const [search, setSearch] = useState("")
 
+	//Fetch de Api
 	useEffect(() => {
 		getDataFromApi().then((newArray) => {
 			setListCharacters(newArray)
 		})
 	}, [])
 
+
+
+
+
+
+
+	//Filtro personajes
 	const filterCharacters = listCharacters.filter((item) => {
 		return item.name.toLowerCase().includes(search.toLowerCase());
 	})
 
+	//Validación búsqueda
 	const noCharacter = filterCharacters.length === 0 ? `No hay ningún personaje que coincida con la palabra ${search}` : "";
-
 
 	const searchCharacter = (valueSearch) => {
 		setSearch(valueSearch);
 	}
 
-	const getPosition = (position) => {
-		const selectedCharacter = listCharacters[parseInt(position) - 1]
-		return selectedCharacter
+	//Detail character
+	const getPosition = (idNumber) => {
+		return listCharacters.find((item) => item.id === idNumber);
 	}
+
+
 
 
 	return (
 		<>
 			<Routes>
 				<Route path="/" element={
-					<Home searchCharacter={ searchCharacter } search={ search } listCharacters={ filterCharacters } noCharacter={ noCharacter } />
-				}>
+					<Home searchCharacter={ searchCharacter } search={ search } listCharacters={ filterCharacters } noCharacter={ noCharacter } /> }>
 				</Route>
-				<Route path="/detail/:position" element={ <CharacterDetail getPosition={ getPosition } /> } />
-				{/* <Route path="*" element={ <PageNotFound /> } /> */ }
-
+				<Route path="/detail/:id" element={
+					<CharacterDetail getPosition={ getPosition } /> } />
+				<Route path="*" element={ <PageNotFound /> } />
 			</Routes>
 		</>
 	)

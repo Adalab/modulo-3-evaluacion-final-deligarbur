@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Character ({ info }) {
+function CharacterCard ({ info }) {
   return (
     <article className="characterCard">
       <Link to={ `/detail/${info.id}` }>
@@ -12,4 +12,4 @@ function Character ({ info }) {
   )
 }
 
-export default Character
+export default CharacterCard

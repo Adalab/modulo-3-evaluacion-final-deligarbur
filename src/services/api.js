@@ -1,6 +1,6 @@
 const getDataFromApi = () => {
-  // Creo un objeto donde yo guardo las cosas que me interesan de lo que me devuelve la API
-  return fetch('https://raw.githubusercontent.com/Adalab/rick-y-morty/master/data/rick-y-morty.json')
+
+  return fetch('https://rickandmortyapi.com/api/character/?search=20')
     .then((response) => response.json())
     .then((data) => {
       const newArray = data.results.map((character) => {
@@ -15,7 +15,18 @@ const getDataFromApi = () => {
         };
       });
 
-      return newArray;
+      //Ordenar por nombre alfabéticamente
+      const sortByName = newArray.sort((a, b) => {
+        if (a.name.toLowerCase() < b.name.toLowerCase()) {
+          return -1;
+        }
+        if (a.name.toLowerCase() > b.name.toLowerCase()) {
+          return 1;
+        }
+        return 0;
+      });
+
+      return sortByName;
     })
 }
 

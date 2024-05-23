@@ -1,12 +1,8 @@
-import { Link } from "react-router-dom";
-
 function PageNotFound () {
   return (
-    <>
-      <Link to="/">
-        <img src="https://colorlib.com/wp/wp-content/uploads/sites/2/404-error-page-templates.jpg" alt="not found page" />
-      </Link>
-    </>
+    <section>
+      <img src="https://shots.codepen.io/username/pen/dVPewm-800.jpg?version=1505412103" alt="not found page" />
+    </section>
   )
 }
 

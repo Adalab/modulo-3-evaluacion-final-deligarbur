@@ -15,6 +15,7 @@ function Filters ({ searchCharacter, search }) {
     <form onSubmit={ (ev) => { ev.preventDefault() } }>
       <label htmlFor="search"></label>
       <input type="text" name="search" id="search" onChange={ handleSearch } onKeyUp={ handleKeyUp } value={ search } />
+
     </form>
   )
 }

@@ -1,11 +1,15 @@
 import { Link, useParams } from "react-router-dom";
+import PageNotFound from "./PageNotFound";
 
 function CharacterDetail ({ getPosition }) {
 
-  const { position } = useParams()
-  const detailData = getPosition(position)
+  //cojo el id del path de la url
+  const { id } = useParams();
+  //lo convierto a número porque es un string lo que me trae el useParams
+  const idNumber = parseInt(id);
+  const detailData = getPosition(idNumber);
 
-  return (
+  const renderDetail = detailData ?
     <article>
       <img src={ detailData.img } alt={ detailData.name } />
       <h2>{ detailData.name }</h2>
@@ -13,8 +17,14 @@ function CharacterDetail ({ getPosition }) {
       <h4>{ detailData.status === "Alive" ? "👽" : "☠️" }</h4>
       <p>{ detailData.origin }</p>
       <p>Número de episodios: { detailData.episode.length }</p>
+    </article > : <PageNotFound />;
+
+  return (
+    <section>
       <Link to="/"> Ir a home</Link>
-    </article>
+      { renderDetail }
+    </section>
+
   )
 }
 
