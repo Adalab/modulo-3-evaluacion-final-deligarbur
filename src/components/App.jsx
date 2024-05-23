@@ -1,11 +1,9 @@
-import React from 'react';
-import "../styles/App.scss";
-import { useState, useEffect } from "react";
-import getDataFromApi from "../services/api";
-import Header from "./Header";
-import FilterByName from "./FilterByName";
-import CharacterList from "./CharacterList";
-import Footer from "./Footer";
+import '../styles/App.scss';
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import getDataFromApi from '../services/api';
+import Home from './Home';
+import CharacterDetail from './CharacterDetail';
 
 function App () {
 	const [listCharacters, setListCharacters] = useState([])
@@ -25,12 +23,22 @@ function App () {
 		setSearch(valueSearch);
 	}
 
+	const getPosition = (position) => {
+		const selectedCharacter = listCharacters[parseInt(position) - 1]
+		return selectedCharacter
+	}
+
 	return (
 		<>
-			<Header />
-			<FilterByName searchCharacter={ searchCharacter } search={ search } />
-			<CharacterList listCharacters={ filterCharacters() } />
-			<Footer />
+			<Routes>
+				<Route path="/" element={
+					<>
+						<Home searchCharacter={ searchCharacter } search={ search } listCharacters={ filterCharacters() } />
+					</>
+				}>
+				</Route>
+				<Route path="/detail/:position" element={ <CharacterDetail getPosition={ getPosition } /> } />
+			</Routes>
 		</>
 	)
 }

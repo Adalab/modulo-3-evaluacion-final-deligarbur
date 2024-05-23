@@ -1,8 +1,8 @@
-import Character from "./Character";
+import CharacterCard from "./CharacterCard";
 
 function CharacterList ({ listCharacters }) {
   const html = listCharacters.map((item) =>
-    <Character key={ item.id } info={ item } />)
+    <CharacterCard key={ item.id } info={ item } />)
 
   return (
     <div className="cardList">
