@@ -1,7 +1,6 @@
-function FilterByName ({ searchCharacter, search }) {
+function Filters ({ searchCharacter, search }) {
 
   const handleSearch = (ev) => {
-
     const valueSearch = ev.target.value;
     searchCharacter(valueSearch);
   }
@@ -20,4 +19,4 @@ function FilterByName ({ searchCharacter, search }) {
   )
 }
 
-export default FilterByName
+export default Filters

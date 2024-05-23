@@ -1,13 +1,15 @@
-import Header from './Header'
-import FilterByName from './FilterByName';
-import CharacterList from './CharacterList';
-import Footer from './Footer';
+import Header from "./Header";
+import Filters from "./Filters";
+import CharacterList from "./CharacterList";
+import Footer from "./Footer";
+import SearchNotFound from "./SearchNotFound";
 
-function Home ({ searchCharacter, search, listCharacters }) {
+function Home ({ searchCharacter, search, listCharacters, noCharacter }) {
   return (
     <>
       <Header />
-      <FilterByName searchCharacter={ searchCharacter } search={ search } />
+      <Filters searchCharacter={ searchCharacter } search={ search } />
+      <SearchNotFound noCharacter={ noCharacter } />
       <CharacterList listCharacters={ listCharacters } />
       <Footer />
     </>

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function CharacterDetail ({ getPosition }) {
 
@@ -10,13 +10,10 @@ function CharacterDetail ({ getPosition }) {
       <img src={ detailData.img } alt={ detailData.name } />
       <h2>{ detailData.name }</h2>
       <h3>{ detailData.species }</h3>
-      <h4>{ detailData.status }</h4>
+      <h4>{ detailData.status === "Alive" ? "👽" : "☠️" }</h4>
       <p>{ detailData.origin }</p>
-      <ul>Lista de episodios
-        { detailData.episode.map((item, i) => {
-          return <li key={ i }>{ item }</li>
-        }) }
-      </ul>
+      <p>Número de episodios: { detailData.episode.length }</p>
+      <Link to="/"> Ir a home</Link>
     </article>
   )
 }
