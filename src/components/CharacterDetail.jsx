@@ -7,6 +7,7 @@ function CharacterDetail ({ getPosition }) {
   const { id } = useParams();
   //lo convierto a número porque es un string lo que me trae el useParams
   const idNumber = parseInt(id);
+  //llamo a la función con mi id y me devuelve el personaje correspondiente
   const detailData = getPosition(idNumber);
 
   const renderDetail = detailData ?
@@ -24,7 +25,6 @@ function CharacterDetail ({ getPosition }) {
       <Link to="/"> Ir a home</Link>
       { renderDetail }
     </section>
-
   )
 }
 
