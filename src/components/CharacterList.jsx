@@ -1,8 +1,13 @@
-import React from 'react'
+import CharacterCard from "./CharacterCard";
 
-function CharacterList () {
+function CharacterList ({ listCharacters }) {
+  const html = listCharacters.map((item) =>
+    <CharacterCard key={ item.id } info={ item } />)
+
   return (
-    <div>CharacterList</div>
+    <div className="cardList">
+      { html }
+    </div>
   )
 }
 
