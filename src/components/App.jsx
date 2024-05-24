@@ -63,12 +63,14 @@ function App () {
 					<Home
 						searchCharacter={ searchCharacter }
 						search={ search }
+						setSearch={ setSearch }
 						listCharacters={ filterCharacters() }
 						noCharacter={ noCharacter }
-						setFilter={ setFilter }
 						filter={ filter }
+						setFilter={ setFilter }
+						selectedSpecies={ selectedSpecies }
 						setSelectedSpecies={ setSelectedSpecies }
-						selectedSpecies={ selectedSpecies } /> }>
+					/> }>
 				</Route>
 				<Route path="/detail/:id" element={
 					<CharacterDetail getPosition={ getPosition } /> } />

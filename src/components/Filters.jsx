@@ -1,4 +1,4 @@
-function Filters ({ searchCharacter, search, setFilter, filter, setSelectedSpecies, selectedSpecies }) {
+function Filters ({ searchCharacter, search, setSearch, setFilter, filter, setSelectedSpecies, selectedSpecies }) {
 
   const handleSearch = (ev) => {
     const valueSearch = ev.target.value;
@@ -19,6 +19,12 @@ function Filters ({ searchCharacter, search, setFilter, filter, setSelectedSpeci
     const valueCheckbox = ev.target.value;
     setSelectedSpecies(valueCheckbox);
   }
+
+  const resetFilters = () => {
+    setSelectedSpecies("");
+    setFilter("All");
+    setSearch("");
+  };
 
   return (
     <form onSubmit={ (ev) => { ev.preventDefault() } }>
@@ -53,6 +59,7 @@ function Filters ({ searchCharacter, search, setFilter, filter, setSelectedSpeci
           checked={ selectedSpecies === "Alien" }
         /> Alien
       </fieldset>
+      <button onClick={ resetFilters }>Reset Filters</button>
     </form>
   )
 }
