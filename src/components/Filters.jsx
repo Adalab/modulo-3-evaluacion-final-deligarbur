@@ -27,39 +27,45 @@ function Filters ({ searchCharacter, search, setSearch, setFilter, filter, setSe
   };
 
   return (
-    <form onSubmit={ (ev) => { ev.preventDefault() } }>
-      <label htmlFor="search"></label>
-      <input
-        type="text"
-        name="search"
-        id="search"
-        onChange={ handleSearch }
-        onKeyUp={ handleKeyUp }
-        value={ search }
-      />
-      <select name="status" id="status" onChange={ handleSelect } value={ filter } >
-        <option value="All">All</option>
-        <option value="Alive">Alive</option>
-        <option value="Dead">Dead</option>
-        <option value="unknown">Unknown</option>
-      </select>
-      <fieldset>
+    <form className="form" onSubmit={ (ev) => { ev.preventDefault() } }>
+      <label className="search" htmlFor="search">
         <input
-          type="radio"
-          name="species"
-          value="Human"
-          onChange={ handleSpecies }
-          checked={ selectedSpecies === "Human" }
-        /> Human
-        <input
-          type="radio"
-          name="species"
-          value="Alien"
-          onChange={ handleSpecies }
-          checked={ selectedSpecies === "Alien" }
-        /> Alien
+          className="search_input"
+          type="text"
+          name="search"
+          id="search"
+          onChange={ handleSearch }
+          onKeyUp={ handleKeyUp }
+          value={ search }
+        />
+        <button className="search_input-reset" onClick={ resetFilters }>Reset</button>
+      </label>
+
+      <fieldset className="filters">
+        <select className="filters_status" name="status" id="status" onChange={ handleSelect } value={ filter } >
+          <option value="All">All</option>
+          <option value="Alive">Alive</option>
+          <option value="Dead">Dead</option>
+          <option value="unknown">Unknown</option>
+        </select>
+        <div className="filters_species">
+          <input
+            type="radio"
+            name="species"
+            value="Human"
+            onChange={ handleSpecies }
+            checked={ selectedSpecies === "Human" }
+          /> Human
+          <input
+            type="radio"
+            name="species"
+            value="Alien"
+            onChange={ handleSpecies }
+            checked={ selectedSpecies === "Alien" }
+          /> Alien
+        </div>
       </fieldset>
-      <button onClick={ resetFilters }>Reset Filters</button>
+
     </form>
   )
 }

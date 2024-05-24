@@ -1,31 +1,13 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+@import "core/variables";
+@import "core/reset";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/characterdetail";
+@import "layout/characterlist";
+@import "layout/filters";
+@import "layout/pagenotfound";
+@import "layout/searchnotfound";
 
-.cardList {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: first baseline;
-  gap: 20px;
-  padding-top: 10px;
-}
-
-.characterCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 140px;
-  padding: 10px;
-  list-style: none;
-  transition: 0.25s all;
-  box-shadow: 0 1px 6px slategray;
-  &_img {
-    width: 100%;
-  }
+body {
+  font-family: var(--brand-font);
 }

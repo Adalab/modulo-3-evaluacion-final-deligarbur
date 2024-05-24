@@ -1,0 +1,15 @@
+.cardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: first baseline;
+  gap: 20px;
+  padding-top: 10px;
+  background-color: black;
+  padding-bottom: 20px;
+}
+
+.characterCard {
+  border-radius: 20px;
+}

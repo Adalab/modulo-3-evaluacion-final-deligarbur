@@ -11,17 +11,19 @@ function CharacterDetail ({ getPosition }) {
   const detailData = getPosition(idNumber);
 
   const renderDetail = detailData ?
-    <article>
-      <img src={ detailData.img } alt={ detailData.name } />
-      <h2>{ detailData.name }</h2>
-      <h3>{ detailData.species }</h3>
-      <h4>{ detailData.status === "Alive" ? "👽" : "☠️" }</h4>
-      <p>{ detailData.origin }</p>
-      <p>Número de episodios: { detailData.episode.length }</p>
+    <article className="detail_card" >
+      <img className="detail_card-img" src={ detailData.img } alt={ detailData.name } />
+      <div className="detail_card-info">
+        <h2>{ detailData.name }</h2>
+        <h3>{ detailData.species }</h3>
+        <h4>{ detailData.status === "Alive" ? "👽" : "☠️" }</h4>
+        <p>{ detailData.origin }</p>
+        <p>Número de episodios: { detailData.episode.length }</p>
+      </div>
     </article > : <PageNotFound />;
 
   return (
-    <section>
+    <section className="detail">
       <Link to="/"> Ir a home</Link>
       { renderDetail }
     </section>
