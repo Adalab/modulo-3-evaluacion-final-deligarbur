@@ -1,0 +1,29 @@
+.footer {
+  border-top: 1px solid var(--grass-green);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+
+  &_license {
+    font-family: var(--brand-font);
+    color: var(--blue-green);
+    font-size: 13px;
+
+    @media screen and (width > 500px) {
+      font-size: 15px;
+    }
+  }
+  &_logo {
+    width: 100px;
+  }
+
+  &_portal {
+    width: 150px;
+  }
+
+  @media screen and (width > 500px) {
+    padding: 20px 20px 30px 30px;
+  }
+}

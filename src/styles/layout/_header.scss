@@ -1,0 +1,20 @@
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  padding: 20px;
+
+  &_title {
+    width: 100%;
+  }
+
+  &_text {
+    font-size: 60px;
+    color: var(--blue-green);
+    padding-bottom: 20px;
+  }
+  
+}

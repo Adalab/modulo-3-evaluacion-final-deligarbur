@@ -1,8 +1,10 @@
-import React from 'react'
+import title from "../images/RickandMorty_Title.gif";
 
 function Header () {
   return (
-    <div>Header</div>
+    <header className="header">
+      <img src={ title } alt="Adalab" className="header_title" />
+    </header >
   )
 }
 

@@ -1,0 +1,68 @@
+.form {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+
+.search {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+
+  &_input {
+    border: 3px solid var(--blue-green);
+    background-color: black;
+    font-size: 16px;
+    padding: 10px;
+    width: 60%;
+    color: white;
+
+    &-reset {
+      color: white;
+      border: 3px solid var(--blue-green);
+      background-color: var(--grass-green);
+      font-size: 16px;
+      padding: 10px;
+    }
+  }
+
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+
+  &_status {
+    padding: 10px;
+    background-color: black;
+    color: var(--grass-green);
+  }
+
+  &_species {
+    padding: 10px;
+    color: var(--grass-green);
+  }
+}
+
+.error {
+  width: 100%;
+  color: var(--lightcoral);
+  margin-top: 10px;
+  text-align: center;
+  margin-left: 30px;
+  @media screen and (width > 500px) {
+    margin-left: 0;
+  }
+}
