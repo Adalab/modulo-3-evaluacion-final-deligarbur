@@ -45,7 +45,8 @@ function App () {
 	};
 
 	//Validación búsqueda
-	const noCharacter = filterCharacters === false ? `There is no character that matches the word ${search}` : "";
+	const filteredCharacters = filterCharacters();
+	const noCharacter = filteredCharacters.length === 0 ? `There is no character that matches the word ${search}` : "";
 
 	const searchCharacter = (valueSearch) => {
 		setSearch(valueSearch);

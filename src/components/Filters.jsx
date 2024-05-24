@@ -16,8 +16,8 @@ function Filters ({ searchCharacter, search, setSearch, setFilter, filter, setSe
   }
 
   const handleSpecies = (ev) => {
-    const valueCheckbox = ev.target.value;
-    setSelectedSpecies(valueCheckbox);
+    const value = ev.target.value;
+    setSelectedSpecies(value);
   }
 
   const resetFilters = () => {
